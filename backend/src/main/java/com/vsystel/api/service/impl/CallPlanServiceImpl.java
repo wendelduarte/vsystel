@@ -1,6 +1,7 @@
 package com.vsystel.api.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class CallPlanServiceImpl implements CallPlanService {
 	public List<CallPlan> getPlans() {
 		return callPlanRepository.findAll();
 	}
-	
-	
+
+	@Override
+	public CallPlan getById(Long planId) {
+		Optional<CallPlan> callPlanOpt = callPlanRepository.findById(planId);
+		return callPlanOpt.orElseThrow();
+	}
 }

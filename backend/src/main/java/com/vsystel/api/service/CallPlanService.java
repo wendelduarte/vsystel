@@ -8,4 +8,5 @@ public interface CallPlanService {
 	
 	public List<CallPlan> getPlans(); 
 
+	public CallPlan getById(Long planId);
 }
