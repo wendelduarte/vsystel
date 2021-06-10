@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vsystel.api.models.CallPlan;
-import com.vsystel.api.models.PriceConsultResult;
 import com.vsystel.api.models.Price;
 import com.vsystel.api.models.PriceConsult;
+import com.vsystel.api.models.PriceConsultResult;
 import com.vsystel.api.repository.PriceRepository;
 import com.vsystel.api.service.CallPlanService;
 import com.vsystel.api.service.ConsultationHistoryService;
@@ -31,6 +31,11 @@ public class PriceConsultServiceImpl implements PriceConsultService {
 	
 	@Autowired
 	private CallPlanService callPlanService;
+	
+	@Autowired
+	public List<Price> getAll() {
+		return priceRepository.findAll();
+	}
 
 	@Override
 	public PriceConsultResult getPrices(PriceConsult priceConsult) {
